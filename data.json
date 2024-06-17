@@ -1,0 +1,40 @@
+{
+    "data": [
+        {
+            "time": "2023",
+            "remarks": "测试备注1",
+            "list": [
+                "./public/5.png",
+                "./public/6.png",
+                "./public/7.png"
+            ]
+        },
+        {
+            "time": "2024",
+            "remarks": "测试备注2",
+            "list": [
+                "./public/2.avif",
+                "./public/3.avif",
+                "./public/4.mp4"
+            ]
+        },
+{
+    "time":"2024",
+    "remarks":"测试备注",
+    "list":[
+        "./public/2.avif",
+        "./public/4.mp4",
+        "./public/1.avif"
+    ]
+},
+{
+    "time":"2024",
+    "remarks":"测试备注",
+    "list":[
+        "./public/2.avif",
+        "./public/3.avif",
+        "./public/4.mp4"
+    ]
+}
+    ]
+}
