@@ -191,7 +191,31 @@
                         "./public/18.jpg",
                         "./public/19.mp4"
                     ]
-                }
+                },
+                {
+                    "time": "2024",
+                    "remarks": "记录",
+                    "list": [
+                        "./public/13.jpg",
+                        "./public/1.mp4",
+                        "./public/3.jpg",
+                        "./public/4.jpg",
+                        "./public/5.jpg",
+                        "./public/6.jpg",
+                        "./public/7.jpg",
+                        "./public/8.jpg",
+                        "./public/9.jpg",
+                        "./public/10.jpg",
+                        "./public/11.jpg",
+                        "./public/12.jpg",
+                        "./public/14.jpg",
+                        "./public/15.jpg",
+                        "./public/16.jpg",
+                        "./public/17.jpg",
+                        "./public/18.jpg",
+                        "./public/19.mp4"
+                    ]
+                },
             ]
         };
 
@@ -207,9 +231,15 @@
                 item.onclick = () => openModal(index, 0);  // 默认打开第一个媒体
 
                 // 添加样式 "top: 447px;" 给第二个项目
-                if (index % 2) {
-                    item.style.top = '447px';
+                var sUserAgent = navigator.userAgent.toLowerCase();
+                if (/ipad|iphone|midp|rv:1.2.3.4|ucweb|android|windows ce|windows mobile/.test(sUserAgent)) {
+                    item.style.marginBottom = '30px';   
+                } else {
+                    if (index % 2) {
+                        item.style.top = '447px';
+                    }          
                 }
+                
 
                 // 使用第一个媒体文件作为缩略图展示
                 const thumbnailSrc = entry.list[0];
@@ -265,7 +295,7 @@
                 modalVideo.src = src;
                 modalImg.style.display = 'none';
                 modalVideo.style.display = 'block';
-                modalVideo.play();
+                // modalVideo.play();
             }
         }
 
@@ -278,6 +308,8 @@
 
         // 切换媒体内容（前进或后退）
         function changeMedia(direction) {
+            const modalVideo = document.querySelector('.modal-video');
+            modalVideo.pause();
             currentIndex += direction;
             if (currentIndex >= currentList.length) {
                 currentIndex = 0;
