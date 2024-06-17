@@ -36,11 +36,16 @@
             border-radius: 10px;
             margin: 10px;
             margin-bottom: 447px;
-            width: 45%;
+            height: 460px; /* 设置固定的容器高度 */
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
             overflow: hidden;
             position: relative;
             cursor: pointer;
+        }
+        .container {
+            width: 460px; /* 设置固定的容器宽度 */
+            height: 370px; /* 设置固定的容器高度 */
+            overflow: hidden; /* 隐藏超出容器的部分 */
         }
         .timeline-item img {
             width: 100%;
@@ -244,17 +249,22 @@
                 // 使用第一个媒体文件作为缩略图展示
                 const thumbnailSrc = entry.list[0];
 
+                const container = document.createElement('div');
+                container.classList.add('container');
+
                 if (thumbnailSrc.endsWith('.avif') || thumbnailSrc.endsWith('.jpg') || thumbnailSrc.endsWith('.jpeg') || thumbnailSrc.endsWith('.png')) {
                     const img = document.createElement('img');
                     img.src = thumbnailSrc;
                     img.alt = `Thumbnail for ${entry.time}`;
-                    item.appendChild(img);
+                    container.appendChild(img);
+                    // item.appendChild(img);
                 } else if (thumbnailSrc.endsWith('.mp4')) {
                     const video = document.createElement('video');
                     video.src = thumbnailSrc;
                     video.alt = `Thumbnail for ${entry.time}`;
                     video.controls = true;
-                    item.appendChild(video);
+                    container.appendChild(video);
+                    // item.appendChild(video);
                 }
 
                 const content = document.createElement('div');
@@ -266,6 +276,7 @@
                 p.textContent = entry.remarks;
                 content.appendChild(p);
 
+                item.appendChild(container);
                 item.appendChild(content);
                 timelineElement.appendChild(item);
             });
