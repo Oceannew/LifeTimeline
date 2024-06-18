@@ -35,7 +35,7 @@
             background-color: #444;
             border-radius: 10px;
             margin: 10px;
-            margin-bottom: 447px;
+            margin-bottom: 560px;
             height: 460px; /* 设置固定的容器高度 */
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
             overflow: hidden;
@@ -171,65 +171,76 @@
 
     <script>
         // JSON 数据定义，模拟从外部加载的情况
-        const jsonData = {
-            "data": [
-                {
-                    "time": "2024",
-                    "remarks": "记录",
-                    "list": [
-                        "./public/13.jpg",
-                        "./public/1.mp4",
-                        "./public/3.jpg",
-                        "./public/4.jpg",
-                        "./public/5.jpg",
-                        "./public/6.jpg",
-                        "./public/7.jpg",
-                        "./public/8.jpg",
-                        "./public/9.jpg",
-                        "./public/10.jpg",
-                        "./public/11.jpg",
-                        "./public/12.jpg",
-                        "./public/14.jpg",
-                        "./public/15.jpg",
-                        "./public/16.jpg",
-                        "./public/17.jpg",
-                        "./public/18.jpg",
-                        "./public/19.mp4"
-                    ]
-                },
-                {
-                    "time": "2023",
-                    "remarks": "记录",
-                    "list": [
-                        "./public/20.jpg",
-                        "./public/21.jpg",
-                        "./public/22.jpg",
-                        "./public/23.jpg",
-                        "./public/24.jpg",
-                        "./public/25.jpg",
-                        "./public/26.jpg",
-                        "./public/27.jpg",
-                        "./public/28.jpg",
-                        "./public/29.jpg",
-                        "./public/30.jpg",
-                        "./public/31.jpg",
-                        "./public/32.jpg",
-                        "./public/33.jpg",
-                        "./public/34.jpg",
-                        "./public/35.jpg",
-                        "./public/36.jpg",
-                        "./public/37.jpg"
-                    ]
-                }
-            ]
-        };
+        // const jsonData = {
+        //     "data": [
+        //         {
+        //             "time": "2024",
+        //             "remarks": "记录",
+        //             "list": [
+        //                 "./public/13.jpg",
+        //                 "./public/1.mp4",
+        //                 "./public/3.jpg",
+        //                 "./public/4.jpg",
+        //                 "./public/5.jpg",
+        //                 "./public/6.jpg",
+        //                 "./public/7.jpg",
+        //                 "./public/8.jpg",
+        //                 "./public/9.jpg",
+        //                 "./public/10.jpg",
+        //                 "./public/11.jpg",
+        //                 "./public/12.jpg",
+        //                 "./public/14.jpg",
+        //                 "./public/15.jpg",
+        //                 "./public/16.jpg",
+        //                 "./public/17.jpg",
+        //                 "./public/18.jpg",
+        //                 "./public/19.mp4"
+        //             ]
+        //         },
+        //         {
+        //             "time": "2023",
+        //             "remarks": "记录",
+        //             "list": [
+        //                 "./public/20.jpg",
+        //                 "./public/21.jpg",
+        //                 "./public/22.jpg",
+        //                 "./public/23.jpg",
+        //                 "./public/24.jpg",
+        //                 "./public/25.jpg",
+        //                 "./public/26.jpg",
+        //                 "./public/27.jpg",
+        //                 "./public/28.jpg",
+        //                 "./public/29.jpg",
+        //                 "./public/30.jpg",
+        //                 "./public/31.jpg",
+        //                 "./public/32.jpg",
+        //                 "./public/33.jpg",
+        //                 "./public/34.jpg",
+        //                 "./public/35.jpg",
+        //                 "./public/36.jpg",
+        //                 "./public/37.jpg"
+        //             ]
+        //         }
+        //     ]
+        // };
+
+        // const timelineElement = document.getElementById('timeline');
+        // let currentList = [];  // 当前弹出框中的媒体列表
+        // let currentIndex = 0;  // 当前弹出框中的媒体索引
+
+        // 动态加载 JSON 文件并生成时间轴项目
+        fetch('data.json')
+            .then(response => response.json())
+            .then(jsonData => {
+                generateTimeline(jsonData);
+            });
 
         const timelineElement = document.getElementById('timeline');
         let currentList = [];  // 当前弹出框中的媒体列表
         let currentIndex = 0;  // 当前弹出框中的媒体索引
 
         // 动态生成时间轴项目
-        function generateTimeline() {
+        function generateTimeline(jsonData) {
             jsonData.data.forEach((entry, index) => {
                 const item = document.createElement('div');
                 item.classList.add('timeline-item');
@@ -241,7 +252,7 @@
                     item.style.marginBottom = '30px';   
                 } else {
                     if (index % 2) {
-                        item.style.top = '447px';
+                        item.style.top = '500px';
                     }          
                 }
                 
