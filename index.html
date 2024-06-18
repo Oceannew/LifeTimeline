@@ -241,6 +241,7 @@
 
         // 动态生成时间轴项目
         function generateTimeline(jsonData) {
+            console.log(jsonData)
             jsonData.data.forEach((entry, index) => {
                 const item = document.createElement('div');
                 item.classList.add('timeline-item');
